@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SearchViewController.h"
 
 @interface ViewController ()
 
@@ -18,6 +19,13 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    SearchViewController *search = [[SearchViewController alloc] init];
+    [search setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:search animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

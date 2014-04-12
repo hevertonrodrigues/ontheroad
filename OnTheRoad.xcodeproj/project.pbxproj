@@ -21,6 +21,8 @@
 		0DDFB6D918F9F2350089E365 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDFB6BB18F9F2350089E365 /* UIKit.framework */; };
 		0DDFB6E118F9F2350089E365 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0DDFB6DF18F9F2350089E365 /* InfoPlist.strings */; };
 		0DDFB6E318F9F2350089E365 /* OnTheRoadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDFB6E218F9F2350089E365 /* OnTheRoadTests.m */; };
+		0DDFB6EE18F9F2C20089E365 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDFB6ED18F9F2C20089E365 /* SearchViewController.m */; };
+		0DDFB6F118F9F4160089E365 /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDFB6F018F9F4160089E365 /* Util.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		0DDFB6DE18F9F2350089E365 /* OnTheRoadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OnTheRoadTests-Info.plist"; sourceTree = "<group>"; };
 		0DDFB6E018F9F2350089E365 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		0DDFB6E218F9F2350089E365 /* OnTheRoadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OnTheRoadTests.m; sourceTree = "<group>"; };
+		0DDFB6EC18F9F2C20089E365 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		0DDFB6ED18F9F2C20089E365 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		0DDFB6EF18F9F4160089E365 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		0DDFB6F018F9F4160089E365 /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,10 @@
 				0DDFB6C918F9F2350089E365 /* Main.storyboard */,
 				0DDFB6CC18F9F2350089E365 /* ViewController.h */,
 				0DDFB6CD18F9F2350089E365 /* ViewController.m */,
+				0DDFB6EC18F9F2C20089E365 /* SearchViewController.h */,
+				0DDFB6ED18F9F2C20089E365 /* SearchViewController.m */,
+				0DDFB6EF18F9F4160089E365 /* Util.h */,
+				0DDFB6F018F9F4160089E365 /* Util.m */,
 				0DDFB6CF18F9F2350089E365 /* Images.xcassets */,
 				0DDFB6BE18F9F2350089E365 /* Supporting Files */,
 			);
@@ -249,8 +259,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DDFB6F118F9F4160089E365 /* Util.m in Sources */,
 				0DDFB6CE18F9F2350089E365 /* ViewController.m in Sources */,
 				0DDFB6C818F9F2350089E365 /* AppDelegate.m in Sources */,
+				0DDFB6EE18F9F2C20089E365 /* SearchViewController.m in Sources */,
 				0DDFB6C418F9F2350089E365 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
