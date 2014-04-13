@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>46E88DA0-4F1D-40B8-B27A-15E27057544E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>OnTheRoad</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9523D8AF-8702-4DF9-ACC1-E93F3312522F</key>
+		<string>ssh://github.com/hevertonrodrigues/ontheroad.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>OnTheRoad.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9523D8AF-8702-4DF9-ACC1-E93F3312522F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/hevertonrodrigues/ontheroad.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9523D8AF-8702-4DF9-ACC1-E93F3312522F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9523D8AF-8702-4DF9-ACC1-E93F3312522F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>OnTheRoad</string>
+		</dict>
+	</array>
+</dict>
+</plist>

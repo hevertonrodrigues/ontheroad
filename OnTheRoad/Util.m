@@ -45,6 +45,21 @@ CLLocationManager *locationManager;
 }
 
 
++ (void)sendLogin:(NSDictionary*)params
+{
+    NSString *url = @"http://www._______/api/ontheroad/login";
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        NSLog(@"params: %@", params);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"params: %@", params);
+        NSLog(@"Error: %@", error);
+        NSLog(@"response: %@", operation.responseString);
+    }];
+}
+
 + (NSString *)getDeviceName
 {
     NSString *deviceName = @"Name of iPhone";

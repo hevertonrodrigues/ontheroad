@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SearchViewController : UIViewController
+@interface SearchViewController : UIViewController <UITextFieldDelegate>
+{
+    UIImageView *logo;
+    UITextField *where;
+    UIButton *search;
+}
 
 @end

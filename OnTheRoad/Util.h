@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import <CoreLocation/CoreLocation.h>
+#import "AFNetworking.h"
 
 
 @interface Util : UIViewController
@@ -24,6 +24,7 @@
     + (NSString *)getDeviceLocation:(NSString*)coord;
 
     + (void)sendData:(NSString*)url :(NSArray*)params;
+    + (void)sendLogin:(NSDictionary*)params;
 
     @property (nonatomic, weak) IBOutlet UIButton *gameLanguageID;
 

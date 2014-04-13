@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 #import "SearchViewController.h"
+#import "SignUpViewController.h"
+#import "Util.h"
 
 @interface ViewController ()
 
@@ -19,19 +21,22 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    latitude = [Util getDeviceLocation:@"lat"];
+    longitude = [Util getDeviceLocation:@"long"];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    SearchViewController *search = [[SearchViewController alloc] init];
-    [search setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-    [self presentViewController:search animated:YES completion:nil];
+    if ( [[NSUserDefaults standardUserDefaults] stringForKey:@"USER_ID"] ) {
+        SearchViewController *search = [[SearchViewController alloc] init];
+        [search setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:search animated:YES completion:nil];
+    } else {
+        SignUpViewController *signup = [[SignUpViewController alloc] init];
+        [signup setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+        [self presentViewController:signup animated:YES completion:nil];
+    }
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end
