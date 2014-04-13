@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@interface SignUpViewController : UIViewController<FBLoginViewDelegate>
+@interface SignUpViewController : UIViewController<FBLoginViewDelegate, UITextFieldDelegate>
 {
     UITextField *name;
     UITextField *email;
+    UIButton *send;
 }
 
 @end

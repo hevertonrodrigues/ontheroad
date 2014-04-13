@@ -23,6 +23,9 @@
 
     + (NSString *)getDeviceLocation:(NSString*)coord;
 
+    + (NSArray*)getPlacesByCategory: (NSString*)_category;
+
+    + (void)getPlaces:(NSDictionary*)params;
     + (void)sendData:(NSString*)url :(NSArray*)params;
     + (void)sendLogin:(NSDictionary*)params;
 

@@ -8,6 +8,7 @@
 
 #import "SearchViewController.h"
 #import "Util.h"
+#import "SelectViewController.h"
 
 @interface SearchViewController ()
 
@@ -19,11 +20,14 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   
-    
     self.view.backgroundColor = [Util colorWithHexString:@"FFDC00"];
     
-    
+    [self initComponents];
+}
+
+
+- (void)initComponents
+{
     logo = [[UIImageView alloc] initWithFrame:CGRectMake( 100, 20 , 120 , 120 )];
     logo.backgroundColor = [UIColor blackColor];
    
@@ -31,14 +35,33 @@
     where.delegate = self;
     where.backgroundColor = [UIColor whiteColor];
     
-    
     search = [[UIButton alloc] initWithFrame:CGRectMake( 100, 350, 120, 40 )];
     search.backgroundColor = [Util colorWithHexString:@"563F03"];
-    
+    [search addTarget:self action:@selector(searchPlaces:) forControlEvents:UIControlEventTouchUpInside];
     
     [self.view addSubview:logo];
     [self.view addSubview:where];
     [self.view addSubview:search];
+}
+
+
+
+
+- (void)searchPlaces:(UIButton*)sender
+{
+    if ( [where.text length] > 1 )
+    {
+        [[NSUserDefaults standardUserDefaults] setValue: where.text forKey:@"LAST_SEARCH"];
+        [self selectView];
+
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Ops..."
+                                                        message: @"Digite o local que deseja ir"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 
@@ -78,6 +101,14 @@
                                           completion:nil];
                      }];
     [self.view endEditing:YES];
+}
+
+
+- (void) selectView
+{
+    SelectViewController *select = [[SelectViewController alloc] init];
+    [select setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:select animated:YES completion:nil];
 }
 
 @end

@@ -30,6 +30,13 @@ CLLocationManager *locationManager;
     gameLanguageID = langID;
 }
 
++ (NSArray*)getPlacesByCategory: (NSString*)_category;
+{
+    NSString *file;
+    file = [self loadFile:@"places"];
+    NSDictionary *_places = [[NSDictionary alloc] initWithContentsOfFile:file];
+    return [_places objectForKey:_category];
+}
 
 + (void)sendData:(NSString*)url :(NSDictionary*)params
 {
@@ -44,20 +51,48 @@ CLLocationManager *locationManager;
 //    }];
 }
 
-
-+ (void)sendLogin:(NSDictionary*)params
++ (void)getPlaces:(NSDictionary*)params
 {
-    NSString *url = @"http://www._______/api/ontheroad/login";
+    NSString *url = @"http://192.168.1.69/ontheroad/api/places";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         NSLog(@"params: %@", params);
+        
+        NSMutableDictionary *places = [[NSMutableDictionary alloc] initWithDictionary:responseObject];
+        NSString *file;
+        file = [self loadFile:@"places"];
+        [places writeToFile:file atomically:NO];
+        
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"params: %@", params);
         NSLog(@"Error: %@", error);
         NSLog(@"response: %@", operation.responseString);
     }];
+}
+
+
++ (void)sendLogin:(NSDictionary*)params
+{
+    NSString *url = @"http://www.hackathon.com.br/api/ontheroad/login";
+    
+    NSLog(@"SEND---------%@", params);
+    
+    [[NSUserDefaults standardUserDefaults] setValue: @"123" forKey:@"USER_ID"];
+    
+    if ( ! [[NSUserDefaults standardUserDefaults] stringForKey:@"USER_ID"] ) {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"JSON: %@", responseObject);
+            NSLog(@"params: %@", params);
+            [[NSUserDefaults standardUserDefaults] setValue: [responseObject objectForKey:@"user_id"] forKey:@"USER_ID"];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"params: %@", params);
+            NSLog(@"Error: %@", error);
+            NSLog(@"response: %@", operation.responseString);
+        }];
+    }
 }
 
 + (NSString *)getDeviceName
@@ -122,6 +157,28 @@ CLLocationManager *locationManager;
                            green:((float) g / 255.0f)
                             blue:((float) b / 255.0f)
                            alpha:1.0f];
+}
+
+
+
++ (NSString *) loadFile:(NSString*)target
+{
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *documentsDirectory = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+    
+    if ( [target isEqualToString:@"places"] ) {
+        NSString *file = [documentsDirectory stringByAppendingPathComponent:@"places"];
+        if ( ! [fileManager fileExistsAtPath:file] ) {
+            [fileManager createFileAtPath:file contents:nil attributes:nil];
+        }
+        return file;
+    } else {
+        NSString *file = [documentsDirectory stringByAppendingPathComponent:@"people"];
+        if ( ! [fileManager fileExistsAtPath:file] ) {
+            [fileManager createFileAtPath:file contents:nil attributes:nil];
+        }
+        return file;
+    }
 }
 
 @end

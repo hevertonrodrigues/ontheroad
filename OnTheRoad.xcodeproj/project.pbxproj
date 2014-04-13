@@ -18,6 +18,10 @@
 		0D5B27D618FA59920061CC2A /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5B27CB18FA59920061CC2A /* AFURLRequestSerialization.m */; };
 		0D5B27D718FA59920061CC2A /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5B27CD18FA59920061CC2A /* AFURLResponseSerialization.m */; };
 		0D5B27D818FA59920061CC2A /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D5B27CF18FA59920061CC2A /* AFURLSessionManager.m */; };
+		0D73B40618FAB4A0008F3D6B /* PlaceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D73B40518FAB4A0008F3D6B /* PlaceDetailViewController.m */; };
+		0D73B40918FAB54C008F3D6B /* MapsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D73B40818FAB54C008F3D6B /* MapsViewController.m */; };
+		0DDCB60018FA712300511962 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCB5FF18FA712300511962 /* SelectViewController.m */; };
+		0DDCB60318FA7B6D00511962 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCB60218FA7B6D00511962 /* ResultsViewController.m */; };
 		0DDFB6B818F9F2350089E365 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDFB6B718F9F2350089E365 /* Foundation.framework */; };
 		0DDFB6BA18F9F2350089E365 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDFB6B918F9F2350089E365 /* CoreGraphics.framework */; };
 		0DDFB6BC18F9F2350089E365 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDFB6BB18F9F2350089E365 /* UIKit.framework */; };
@@ -69,6 +73,14 @@
 		0D5B27CD18FA59920061CC2A /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
 		0D5B27CE18FA59920061CC2A /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
 		0D5B27CF18FA59920061CC2A /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
+		0D73B40418FAB4A0008F3D6B /* PlaceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceDetailViewController.h; sourceTree = "<group>"; };
+		0D73B40518FAB4A0008F3D6B /* PlaceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceDetailViewController.m; sourceTree = "<group>"; };
+		0D73B40718FAB54C008F3D6B /* MapsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapsViewController.h; sourceTree = "<group>"; };
+		0D73B40818FAB54C008F3D6B /* MapsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapsViewController.m; sourceTree = "<group>"; };
+		0DDCB5FE18FA712300511962 /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
+		0DDCB5FF18FA712300511962 /* SelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewController.m; sourceTree = "<group>"; };
+		0DDCB60118FA7B6D00511962 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		0DDCB60218FA7B6D00511962 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		0DDFB6B418F9F2350089E365 /* OnTheRoad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheRoad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DDFB6B718F9F2350089E365 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0DDFB6B918F9F2350089E365 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -189,6 +201,14 @@
 				0D5B27B818FA027A0061CC2A /* SignUpViewController.m */,
 				0DDFB6EC18F9F2C20089E365 /* SearchViewController.h */,
 				0DDFB6ED18F9F2C20089E365 /* SearchViewController.m */,
+				0DDCB5FE18FA712300511962 /* SelectViewController.h */,
+				0DDCB5FF18FA712300511962 /* SelectViewController.m */,
+				0D73B40718FAB54C008F3D6B /* MapsViewController.h */,
+				0D73B40818FAB54C008F3D6B /* MapsViewController.m */,
+				0DDCB60118FA7B6D00511962 /* ResultsViewController.h */,
+				0DDCB60218FA7B6D00511962 /* ResultsViewController.m */,
+				0D73B40418FAB4A0008F3D6B /* PlaceDetailViewController.h */,
+				0D73B40518FAB4A0008F3D6B /* PlaceDetailViewController.m */,
 				0DDFB6EF18F9F4160089E365 /* Util.h */,
 				0DDFB6F018F9F4160089E365 /* Util.m */,
 				0DDFB6CF18F9F2350089E365 /* Images.xcassets */,
@@ -323,6 +343,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DDCB60318FA7B6D00511962 /* ResultsViewController.m in Sources */,
+				0DDCB60018FA712300511962 /* SelectViewController.m in Sources */,
 				0D5B27D818FA59920061CC2A /* AFURLSessionManager.m in Sources */,
 				0DDFB6F118F9F4160089E365 /* Util.m in Sources */,
 				0DDFB6CE18F9F2350089E365 /* ViewController.m in Sources */,
@@ -336,7 +358,9 @@
 				0DDFB6C418F9F2350089E365 /* main.m in Sources */,
 				0D5B27D118FA59920061CC2A /* AFHTTPRequestOperationManager.m in Sources */,
 				0D5B27D418FA59920061CC2A /* AFSecurityPolicy.m in Sources */,
+				0D73B40618FAB4A0008F3D6B /* PlaceDetailViewController.m in Sources */,
 				0D5B27D718FA59920061CC2A /* AFURLResponseSerialization.m in Sources */,
+				0D73B40918FAB54C008F3D6B /* MapsViewController.m in Sources */,
 				0D5B27D018FA59920061CC2A /* AFHTTPRequestOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
