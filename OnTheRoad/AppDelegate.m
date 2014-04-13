@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @implementation AppDelegate
 
@@ -15,6 +16,7 @@
 {
     [FBLoginView class];
     [FBProfilePictureView class];
+    [GMSServices provideAPIKey:@"AIzaSyAZPJJyZXv2UiyMa_MfldsHc8zFpCLxsDs"];
     // Override point for customization after application launch.
     return YES;
 }
