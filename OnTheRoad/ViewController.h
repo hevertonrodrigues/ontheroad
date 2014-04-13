@@ -10,8 +10,9 @@
 
 @interface ViewController : UIViewController
 {
-    NSString *latitude;
-    NSString *longitude;
+    int screenW;
+    int screenH;
+    UIImageView *bg;
 }
 
 @end

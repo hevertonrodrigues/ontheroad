@@ -14,6 +14,15 @@
     UITextField *name;
     UITextField *email;
     UIButton *send;
+    
+    UIImageView *signUp;
+    UIImageView *bottom_logo;
+    
+    NSString *latitude;
+    NSString *longitude;
+    
+    int screenW;
+    int screenH;
 }
 
 @end

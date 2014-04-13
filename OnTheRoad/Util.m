@@ -53,7 +53,7 @@ CLLocationManager *locationManager;
 
 + (void)getPlaces:(NSDictionary*)params
 {
-    NSString *url = @"http://192.168.1.69/ontheroad/api/places";
+    NSString *url = @"http://www.globalbombas.com.br/ontheroad/search";
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -75,18 +75,14 @@ CLLocationManager *locationManager;
 
 + (void)sendLogin:(NSDictionary*)params
 {
-    NSString *url = @"http://www.hackathon.com.br/api/ontheroad/login";
-    
-    NSLog(@"SEND---------%@", params);
-    
-    [[NSUserDefaults standardUserDefaults] setValue: @"123" forKey:@"USER_ID"];
+    NSString *url = @"http://www.globalbombas.com.br/ontheroad/sign_up";
     
     if ( ! [[NSUserDefaults standardUserDefaults] stringForKey:@"USER_ID"] ) {
         AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
         [manager POST:url parameters:params success:^(AFHTTPRequestOperation *operation, id responseObject) {
             NSLog(@"JSON: %@", responseObject);
             NSLog(@"params: %@", params);
-            [[NSUserDefaults standardUserDefaults] setValue: [responseObject objectForKey:@"user_id"] forKey:@"USER_ID"];
+            [[NSUserDefaults standardUserDefaults] setValue: [responseObject objectForKey:@"id"] forKey:@"USER_ID"];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"params: %@", params);
             NSLog(@"Error: %@", error);

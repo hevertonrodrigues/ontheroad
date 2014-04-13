@@ -11,8 +11,12 @@
 @interface SearchViewController : UIViewController <UITextFieldDelegate>
 {
     UIImageView *logo;
+    UIImageView *slogan;
+    UIImageView *bottom_logo;
     UITextField *where;
     UIButton *search;
+    int screenW;
+    int screenH;
 }
 
 @end

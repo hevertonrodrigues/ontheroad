@@ -9,6 +9,7 @@
 #import "SignUpViewController.h"
 #import "SearchViewController.h"
 #import "Util.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface SignUpViewController ()
 
@@ -21,25 +22,44 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [Util colorWithHexString:@"FFDC00"];
+    screenW = self.view.frame.size.width;
+    screenH = self.view.frame.size.height;
     
     [self initComponents];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    latitude = [Util getDeviceLocation:@"lat"];
+    longitude = [Util getDeviceLocation:@"long"];
+}
 
 
 - (void) initComponents
 {
-    name = [[UITextField alloc] initWithFrame:CGRectMake( 40 , 120, 240, 40 )];
+    signUp = [[UIImageView alloc] initWithFrame:CGRectMake( 106, 50 , 108 , 38 )];
+    signUp.image = [UIImage imageNamed:@"sign_up"];
+    
+    bottom_logo = [[UIImageView alloc] initWithFrame:CGRectMake( screenW - 80 , screenH - 80 , 75 , 73 )];
+    bottom_logo.image = [UIImage imageNamed:@"bottom_logo"];
+    
+    name = [[UITextField alloc] initWithFrame:CGRectMake( 40 , ( screenH / 2 ) - 120, 240, 40 )];
     name.backgroundColor = [UIColor whiteColor];
     name.delegate = self;
-    name.placeholder = @"NOME";
+    name.layer.cornerRadius = 10;
+    name.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    name.leftViewMode = UITextFieldViewModeAlways;
+    name.placeholder = @"NAME";
     
-    email = [[UITextField alloc] initWithFrame:CGRectMake( 40 , 220, 240, 40 )];
+    email = [[UITextField alloc] initWithFrame:CGRectMake( 40 , ( screenH / 2 ) - 60 , 240, 40 )];
     email.backgroundColor = [UIColor whiteColor];
     email.delegate = self;
+    email.layer.cornerRadius = 10;
+    email.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+    email.leftViewMode = UITextFieldViewModeAlways;
     email.placeholder = @"EMAIL";
     
-    send = [[UIButton alloc] initWithFrame:CGRectMake( 40, 320, 240, 40 )];
+    send = [[UIButton alloc] initWithFrame:CGRectMake( 40, ( screenH / 2 ) + 20, 240, 40 )];
     send.backgroundColor = [Util colorWithHexString:@"000000"];
     [send setTitle:@"ENTRAR" forState:UIControlStateNormal];
     [send addTarget:self action:@selector(loginWithNameAndEmail:) forControlEvents:UIControlEventTouchUpInside];
@@ -54,8 +74,7 @@
     loginView.readPermissions = @[@"basic_info", @"email"];
     loginView.delegate = self;
 
-
-    loginView.frame = CGRectMake( 40, 420, 240, 50);
+    loginView.frame = CGRectMake( 40, screenH - 150, 240, 50);
     
     
     //if (!FBSession.activeSession.isOpen)
@@ -64,6 +83,8 @@
     //}
     
     [self.view addSubview:name];
+    [self.view addSubview:signUp];
+    [self.view addSubview:bottom_logo];
     [self.view addSubview:email];
     [self.view addSubview:send];
 }
@@ -75,6 +96,9 @@
     {
         NSDictionary *sendData = [[NSDictionary alloc] initWithObjectsAndKeys:name.text, @"name",
                                                                                 email.text, @"email",
+                                                                                @"", @"profile_id",
+                                                                                latitude, @"lat",
+                                                                                longitude, @"long",
                                                                                 @"manual", @"type",
                                                                                 nil];
         [Util sendLogin:sendData];
@@ -97,6 +121,8 @@
     [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
         NSDictionary *sendData = [[NSDictionary alloc] initWithObjectsAndKeys:user.name, @"name",
                                                                                 user.id, @"profile_id",
+                                                                                latitude, @"lat",
+                                                                                longitude, @"long",
                                                                                 @"facebook", @"type",
                                                                                 [result objectForKey:@"email"], @"email",
                                                                                 nil];
