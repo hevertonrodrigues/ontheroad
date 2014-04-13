@@ -8,6 +8,7 @@
 
 #import "MapsViewController.h"
 #import "Util.h"
+#import "SelectViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface MapsViewController ()
@@ -27,8 +28,20 @@
     screenW = self.view.frame.size.width;
     screenH = self.view.frame.size.height;
    
-    self.view.backgroundColor = [Util colorWithHexString:@"563F03"];
+    self.view.backgroundColor = [Util colorWithHexString:@"FFDC00"];
     
+    UIImageView *header = [[UIImageView alloc] initWithFrame:CGRectMake(0, 4, screenW, 76)];
+    header.image = [UIImage imageNamed:@"header_map"];
+    
+    UIButton *back = [[UIButton alloc] initWithFrame:CGRectMake( screenW - 60, 25, 50, 50)];
+    UIImageView *backBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    backBG.image = [UIImage imageNamed:@"back"];
+    [back addSubview:backBG];
+    [back addTarget:self action:@selector(back:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [self.view addSubview:header];
+    [self.view addSubview:back];
     [self createMap];
 }
 
@@ -39,7 +52,7 @@
                                                             longitude:151.20
                                                                  zoom:6];
     
-    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake( 0, 100, screenW, screenH - 100 ) camera:camera];
+    GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake( 0, 80, screenW, screenH - 80 ) camera:camera];
     mapView.myLocationEnabled = YES;
     
     [self.view addSubview:mapView];
@@ -71,6 +84,14 @@
     
     // Creates a marker in the center of the map.
 
+}
+
+
+- (void)back:(UIButton*)sender
+{
+    SelectViewController *select = [[SelectViewController alloc] init];
+    [select setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
+    [self presentViewController:select animated:YES completion:nil];
 }
 
 @end
