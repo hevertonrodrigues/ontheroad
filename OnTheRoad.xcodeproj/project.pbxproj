@@ -34,6 +34,8 @@
 		0D73B42118FAB7C2008F3D6B /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D73B42018FAB7C2008F3D6B /* OpenGLES.framework */; };
 		0D73B42318FAB7C8008F3D6B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D73B42218FAB7C8008F3D6B /* QuartzCore.framework */; };
 		0D73B42518FAB7D1008F3D6B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D73B42418FAB7D1008F3D6B /* SystemConfiguration.framework */; };
+		0D73B42818FAC110008F3D6B /* bag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D73B42618FAC110008F3D6B /* bag@2x.png */; };
+		0D73B42918FAC110008F3D6B /* bag.png in Resources */ = {isa = PBXBuildFile; fileRef = 0D73B42718FAC110008F3D6B /* bag.png */; };
 		0DDCB60018FA712300511962 /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCB5FF18FA712300511962 /* SelectViewController.m */; };
 		0DDCB60318FA7B6D00511962 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0DDCB60218FA7B6D00511962 /* ResultsViewController.m */; };
 		0DDFB6B818F9F2350089E365 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DDFB6B718F9F2350089E365 /* Foundation.framework */; };
@@ -105,6 +107,8 @@
 		0D73B42018FAB7C2008F3D6B /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		0D73B42218FAB7C8008F3D6B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		0D73B42418FAB7D1008F3D6B /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0D73B42618FAC110008F3D6B /* bag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bag@2x.png"; sourceTree = "<group>"; };
+		0D73B42718FAC110008F3D6B /* bag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bag.png; sourceTree = "<group>"; };
 		0DDCB5FE18FA712300511962 /* SelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
 		0DDCB5FF18FA712300511962 /* SelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewController.m; sourceTree = "<group>"; };
 		0DDCB60118FA7B6D00511962 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
@@ -198,6 +202,15 @@
 			path = AFNetworking;
 			sourceTree = "<group>";
 		};
+		0D73B42A18FAC115008F3D6B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				0D73B42718FAC110008F3D6B /* bag.png */,
+				0D73B42618FAC110008F3D6B /* bag@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		0DDFB6AB18F9F2350089E365 = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +279,7 @@
 				0D73B40518FAB4A0008F3D6B /* PlaceDetailViewController.m */,
 				0DDFB6EF18F9F4160089E365 /* Util.h */,
 				0DDFB6F018F9F4160089E365 /* Util.m */,
+				0D73B42A18FAC115008F3D6B /* images */,
 				0DDFB6CF18F9F2350089E365 /* Images.xcassets */,
 				0DDFB6BE18F9F2350089E365 /* Supporting Files */,
 			);
@@ -377,10 +391,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D73B42918FAC110008F3D6B /* bag.png in Resources */,
 				0DDFB6D018F9F2350089E365 /* Images.xcassets in Resources */,
 				0DDFB6C218F9F2350089E365 /* InfoPlist.strings in Resources */,
 				0DDFB6CB18F9F2350089E365 /* Main.storyboard in Resources */,
 				0D73B40D18FAB72D008F3D6B /* GoogleMaps.bundle in Resources */,
+				0D73B42818FAC110008F3D6B /* bag@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

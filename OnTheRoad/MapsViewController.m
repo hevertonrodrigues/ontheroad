@@ -59,7 +59,7 @@
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake( [[currentObject valueForKey:@"lat"] doubleValue], [[currentObject valueForKey:@"long"] doubleValue] );
         marker.title = [currentObject valueForKey:@"name"];
-        marker.icon = [UIImage imageNamed:@""];
+        marker.icon = [UIImage imageNamed:@"bag"];
         marker.snippet = @"Australia";
         marker.map = mapView;
     }
