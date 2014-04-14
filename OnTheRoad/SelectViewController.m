@@ -43,16 +43,17 @@
     UIImageView *folderBG = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, folder.frame.size.width, folder.frame.size.height )];
     folderBG.image = [UIImage imageNamed:@"folder"];
     [folder addSubview:folderBG];
+    [folder addTarget:self action:@selector(help:) forControlEvents:UIControlEventTouchUpInside];
     
-    UILabel *experience = [[UILabel alloc] initWithFrame:CGRectMake( 40, 20, 200, 40)];
-    experience.text = @"EXPERIENCE";
-    experience.font = [UIFont fontWithName:@"" size:18];
+    UILabel *experience = [[UILabel alloc] initWithFrame:CGRectMake( 50, 15, 200, 40)];
+    experience.text = @"Experience";
+    experience.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0];
     experience.textColor = [Util colorWithHexString:@"563F03"];
     [folder addSubview:experience];
     
-    UILabel *local = [[UILabel alloc] initWithFrame:CGRectMake( 40, 70, 200, 40)];
+    UILabel *local = [[UILabel alloc] initWithFrame:CGRectMake( 50, 50, 200, 40)];
     local.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"LAST_SEARCH"];
-    local.font = [UIFont fontWithName:@"" size:18];
+    local.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:32.0];
     local.textColor = [Util colorWithHexString:@"563F03"];
     [folder addSubview:local];
     
@@ -113,25 +114,35 @@
     [self presentViewController:maps animated:YES completion:nil];
 }
 
+
+- (void)help:(UIButton*)button
+{
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.3];
+        placesView.contentOffset = CGPointMake( placesView.frame.size.width, 0 );
+    [UIView commitAnimations];
+
+}
+
 - (void)openPlaces:(UIButton*)button
 {
     ResultsViewController *results = [[ResultsViewController alloc] init];
     NSString *category;
     switch ( button.tag ) {
         case 1:
-                category = @"tosee";
+                category = @"toSee";
             break;
         case 2:
-                category = @"toeat";
+                category = @"toEat";
             break;
         case 3:
-                category = @"todo";
+                category = @"toDo";
             break;
         case 4:
-                category = @"coolest";
+                category = @"Coolest";
             break;
         default:
-                category = @"coolest";
+                category = @"Coolest";
             break;
     }
     

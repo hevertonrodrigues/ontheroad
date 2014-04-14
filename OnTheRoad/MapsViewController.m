@@ -10,6 +10,7 @@
 #import "Util.h"
 #import "SelectViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "AFNetworking.h"
 
 @interface MapsViewController ()
 
@@ -48,34 +49,61 @@
 
 - (void)createMap
 {
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                            longitude:151.20
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-23.760677
+                                                            longitude:-46.4888692
                                                                  zoom:6];
     
     GMSMapView *mapView = [GMSMapView mapWithFrame:CGRectMake( 0, 80, screenW, screenH - 80 ) camera:camera];
     mapView.myLocationEnabled = YES;
     
     [self.view addSubview:mapView];
-   
-    NSArray *_places = [NSArray arrayWithObjects:
-                                                [NSDictionary dictionaryWithObjectsAndKeys:@"Primeira Pessoa", @"name", @"-34.86", @"lat", @"151.20", @"long", nil],
-                                                [NSDictionary dictionaryWithObjectsAndKeys:@"Segunda Pessoa", @"name", @"-38.86", @"lat", @"151.20", @"long", nil],
-                                                [NSDictionary dictionaryWithObjectsAndKeys:@"Terceira Pessoa", @"name", @"-30.86", @"lat", @"151.20", @"long", nil],
-                                                [NSDictionary dictionaryWithObjectsAndKeys:@"Quarta Pessoa", @"name", @"-20.86", @"lat", @"151.20", @"long", nil],
-                                                nil];
     
-    NSLog(@"---------------------------- %@", _places);
     
-    for (id object in _places) {
-        NSDictionary *currentObject = (NSDictionary*)object;
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    [manager POST:@"http://www.globalbombas.com.br/ontheroad/find_users_on_map" parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         
-        GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake( [[currentObject valueForKey:@"lat"] doubleValue], [[currentObject valueForKey:@"long"] doubleValue] );
-        marker.title = [currentObject valueForKey:@"name"];
-        marker.icon = [UIImage imageNamed:@"bag"];
-        marker.snippet = @"Australia";
-        marker.map = mapView;
-    }
+        NSLog(@"%@",responseObject);
+        
+
+        for (id object in responseObject) {
+            NSDictionary *currentObject = (NSDictionary*)object;
+
+            if ( [currentObject valueForKey:@"lat"] &&  [currentObject valueForKey:@"long"] && [currentObject valueForKey:@"name"] )
+            {
+                GMSMarker *marker = [[GMSMarker alloc] init];
+                marker.position = CLLocationCoordinate2DMake( [[currentObject valueForKey:@"lat"] doubleValue], [[currentObject valueForKey:@"long"] doubleValue] );
+                //marker.position = CLLocationCoordinate2DMake( -38.86, 151.20 );
+                marker.title = [currentObject valueForKey:@"name"];
+                marker.icon = [UIImage imageNamed:@"bag"];
+                //marker.snippet = @"Australia";
+                marker.map = mapView;     
+            }
+        }
+    
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"response: %@", operation.responseString);
+    }];
+    
+   
+//    NSArray *_places = [NSArray arrayWithObjects:
+//                                                [NSDictionary dictionaryWithObjectsAndKeys:@"Primeira Pessoa", @"name", @"-34.86", @"lat", @"151.20", @"long", nil],
+//                                                [NSDictionary dictionaryWithObjectsAndKeys:@"Segunda Pessoa", @"name", @"-38.86", @"lat", @"151.20", @"long", nil],
+//                                                [NSDictionary dictionaryWithObjectsAndKeys:@"Terceira Pessoa", @"name", @"-30.86", @"lat", @"151.20", @"long", nil],
+//                                                [NSDictionary dictionaryWithObjectsAndKeys:@"Quarta Pessoa", @"name", @"-20.86", @"lat", @"151.20", @"long", nil],
+//                                                nil];
+//    
+//    NSLog(@"---------------------------- %@", _places);
+//    
+//    for (id object in _places) {
+//        NSDictionary *currentObject = (NSDictionary*)object;
+//        
+//        GMSMarker *marker = [[GMSMarker alloc] init];
+//        marker.position = CLLocationCoordinate2DMake( [[currentObject valueForKey:@"lat"] doubleValue], [[currentObject valueForKey:@"long"] doubleValue] );
+//        marker.title = [currentObject valueForKey:@"name"];
+//        marker.icon = [UIImage imageNamed:@"bag"];
+//        marker.snippet = @"Australia";
+//        marker.map = mapView;
+//    }
     
     
 //    for ( NSString *key in _places) {

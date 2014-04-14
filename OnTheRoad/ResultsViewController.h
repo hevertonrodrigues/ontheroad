@@ -17,6 +17,7 @@
     int screenH;
     
     UITableView *resultsTableView;
+    UIView *expView;
 }
 
 

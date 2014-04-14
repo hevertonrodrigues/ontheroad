@@ -25,6 +25,8 @@
 
     + (NSArray*)getPlacesByCategory: (NSString*)_category;
 
+    + (NSArray*)getUsersOnMap;
+
     + (void)getPlaces:(NSDictionary*)params;
     + (void)sendData:(NSString*)url :(NSArray*)params;
     + (void)sendLogin:(NSDictionary*)params;

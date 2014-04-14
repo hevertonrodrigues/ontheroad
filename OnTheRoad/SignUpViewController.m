@@ -59,9 +59,11 @@
     email.leftViewMode = UITextFieldViewModeAlways;
     email.placeholder = @"EMAIL";
     
-    send = [[UIButton alloc] initWithFrame:CGRectMake( 40, ( screenH / 2 ) + 20, 240, 40 )];
-    send.backgroundColor = [Util colorWithHexString:@"000000"];
-    [send setTitle:@"ENTRAR" forState:UIControlStateNormal];
+    send = [[UIButton alloc] initWithFrame:CGRectMake( 118, ( screenH / 2 ) + 20, 84, 43 )];
+    UIImageView *bgSend = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 70, 40)];
+    bgSend.image = [UIImage imageNamed:@"btn_login"];
+    send.backgroundColor = [UIColor clearColor];
+    [send addSubview:bgSend];
     [send addTarget:self action:@selector(loginWithNameAndEmail:) forControlEvents:UIControlEventTouchUpInside];
     
     
@@ -155,11 +157,10 @@
 {
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.2];
-    [name setFrame:CGRectMake( 40 , 40 , 240 , 40 ) ];
-    [email setFrame:CGRectMake( 40 , 100 , 240 , 40 ) ];
-    [send setFrame:CGRectMake( 100 , 160 , 120 , 40 ) ];
-    //[UIView setAnimationDelegate:self];
-    //[UIView setAnimationDidStopSelector:@selector(simulateDownBounceOne)];
+        [signUp setFrame: CGRectMake( 106, -50 , 108 , 38 )];
+        [name setFrame:CGRectMake( 40 , 40 , 240 , 40 ) ];
+        [email setFrame:CGRectMake( 40 , 100 , 240 , 40 ) ];
+        [send setFrame:CGRectMake( 118 , 160 , 84 , 40 ) ];
     [UIView commitAnimations];
 }
 
@@ -170,9 +171,10 @@
                           delay: 0.0
                         options: UIViewAnimationOptionCurveEaseIn
                      animations:^{
-                        [name setFrame:CGRectMake( 40 , 120, 240, 40 ) ];
-                        [email setFrame:CGRectMake( 40 , 220, 240, 40 ) ];
-                        [send setFrame:CGRectMake( 40, 320, 240, 40) ];
+                        [signUp setFrame: CGRectMake( 106, 50 , 108 , 38 )];
+                        [name setFrame:CGRectMake( 40 , ( screenH / 2 ) - 120, 240, 40 ) ];
+                        [email setFrame:CGRectMake( 40 , ( screenH / 2 ) - 60, 240, 40 ) ];
+                        [send setFrame:CGRectMake( 118, ( screenH / 2 ) + 20, 84, 43 ) ];
                      }
                      completion:^(BOOL finished){
                          // Wait one second and then fade in the view

@@ -7,7 +7,6 @@
 //
 
 #import "Util.h"
-//#import "AFNetworking.h"
 
 @interface Util ()
 
@@ -115,6 +114,18 @@ CLLocationManager *locationManager;
         return [NSString stringWithFormat:@"%f", locationManager.location.coordinate.longitude];
     }
     
+}
+
+
++ (NSArray*)getUsersOnMap
+{
+//   NSString *url = ;
+    
+    NSMutableArray *_users = [[NSMutableArray alloc] init];
+
+    
+    NSArray *returnArray = [NSArray arrayWithArray:_users];
+    return returnArray;
 }
 
 
